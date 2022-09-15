@@ -45,11 +45,99 @@ body {
 }
 
 .card-btn {
-    margin-top: 25px;
+    margin-top: 15px;
     width: 40px;
     height: 60px;
+    position: fixed;
     background-color: var(--main-color);
     color: white;
+}
+
+/* card-content */
+.card-content {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    margin: 25px 0px;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-auto-rows: auto;
+    gap: 20px;
+}
+
+.card {
+    width: 200px;
+    height: 250px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.card-top {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-txt {
+    color: black;
+}
+
+.author-txt {
+    color: black;
+}
+
+.pages-txt {
+    color: black;
+}
+
+.card-bottom {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.read-toggle[type="checkbox"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 75px;
+    height: 40px;
+    border: 1px solid var(--main-color);
+    border-radius: 2rem;
+    cursor: pointer;
+    background-color: white;
+    transition: 0.3s;
+}
+
+.read-toggle[type="checkbox"]::before {
+    content: "Not Read";
+}
+
+.read-toggle[type="checkbox"]:checked {
+    
+    border: none;
+    background-color: var(--main-color);
+    
+}
+
+.read-toggle[type="checkbox"]:checked::before {
+    content: "Read";
+    color: white;
+}
+
+.remove-btn {
+    width: 70px;
+    height: 30px;
+    border: 0px solid black;
+    border-radius: 1rem;
+    background-color: hsl(0, 60%, 60%);
+    color: black;
 }
 
 /* modal */
@@ -124,7 +212,44 @@ label {
 .input-container {
     display: flex;
     justify-content: left;
+    align-items: center;
     gap: 10px;
+}
+
+.checkbox[type="checkbox"] {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 80px;
+    height: 30px;
+    border: 1px solid var(--main-color);
+    border-radius: 1rem;
+    cursor: pointer;
+    background-color: white;
+    transition: 0.3s;
+}
+
+.checkbox[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    margin: 0px 2px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    transition: 0.6s;
+}
+
+.checkbox[type="checkbox"]:checked {
+    justify-content: right;
+    background-color: var(--main-color);
+    transition: 0.6s;
+}
+
+.checkbox[type="checkbox"]:checked::before {
+    background-color: white;
 }
 
 .submit-container {
