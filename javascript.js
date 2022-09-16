@@ -65,9 +65,9 @@ function createCard() {
     cardBottom.insertAdjacentElement("beforeend", removeBtn);
     cardContent.insertAdjacentElement("beforeend", card);
 
-    titleTxt.textContent = input1[0].value;
-    authorTxt.textContent = input2[0].value;
-    pagesNum.textContent = input3[0].value;
+    titleTxt.textContent = "Title: " + input1[0].value;
+    authorTxt.textContent = "Author: " + input2[0].value;
+    pagesNum.textContent = "Pages: " + input3[0].value;
     removeBtn.textContent = "Remove";
 
     // remove card function
@@ -113,6 +113,10 @@ cardBtn.addEventListener("click", e => {
 overlayer.addEventListener("click", e => {
     modal.classList.remove("modal-active");
     overlayer.classList.remove("active");
+    input1[0].value = "";
+    input2[0].value = "";
+    input3[0].value = "";
+    input4[0].checked = false;
 })
 
 
