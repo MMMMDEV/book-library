@@ -29,11 +29,9 @@ const input2 = document.querySelectorAll(".txt2");
 const input3 = document.querySelectorAll(".txt3");
 const input4 = document.querySelectorAll(".checkbox");
 const formSubmit = document.querySelector(".form-submit");
-let card;
-let removeBtn;
 
 function createCard() {
-    card = document.createElement("div");
+    const card = document.createElement("div");
     card.classList.add("card");
 
     const cardTop = document.createElement("div");
@@ -52,7 +50,7 @@ function createCard() {
     readToggle.classList.add("read-toggle");
     readToggle.type = "checkbox";
 
-    removeBtn = document.createElement("button");
+    const removeBtn = document.createElement("button");
     removeBtn.classList.add("remove-btn");
 
     const cardBottom = document.createElement("div");
@@ -70,7 +68,16 @@ function createCard() {
     titleTxt.textContent = input1[0].value;
     authorTxt.textContent = input2[0].value;
     pagesNum.textContent = input3[0].value;
-    removeBtn.textContent = "Delete";
+    removeBtn.textContent = "Remove";
+
+    // remove card function
+    function removeCard() {
+        card.remove();
+    };
+    removeBtn.addEventListener("click", e => {
+        removeCard();
+    });
+
     if (input4[0].checked == true) {
         readToggle.checked = true;
     } else {
@@ -91,9 +98,7 @@ function createBook() {
     }
 }
 
-function removeCard() {
-    card.remove();
-}
+
 
 form.addEventListener("submit", e => {
     e.preventDefault();
@@ -103,7 +108,6 @@ form.addEventListener("submit", e => {
 cardBtn.addEventListener("click", e => {
     modal.classList.add("modal-active");
     overlayer.classList.add("active");
-    console.log(myLibrary);
 })
 
 overlayer.addEventListener("click", e => {
@@ -111,8 +115,6 @@ overlayer.addEventListener("click", e => {
     overlayer.classList.remove("active");
 })
 
-removeBtn.addEventListener("click", e => {
-    removeCard();
-});
+
 
 
